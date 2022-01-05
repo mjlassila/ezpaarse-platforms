@@ -1,7 +1,7 @@
 {
   "longname": "MOT Kielipalvelu",
   "name": "mot",
-  "describe": "Recognizes the accesses to the platform MOT Kielipalvelu and legacy MOT Dictionaries",
+  "describe": "Recognizes the accesses to the platform MOT Kielipalvelu",
   "contact": "Matti Lassila",
   "pkb": false,
   "docurl": "https://github.com/mjlassila/ezpaarse-platforms",

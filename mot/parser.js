@@ -14,18 +14,16 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let result = {};
   let path   = parsedUrl.pathname;
   // uncomment this line if you need parameters
-  // let param = parsedUrl.query || {};
+  let param = parsedUrl.query || {};
 
   // use console.error for debuging
   // console.error(parsedUrl);
 
-  let match;
-
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
-    result.rtype    = 'ARTICLE';
-    result.mime     = 'PDF';
-    result.title_id = match[1];
+  if (((/^\/api\/search\/v\d\/search\/dictionary$/i.exec(path)) !== null) && param.keyword) {
+    // https://www.sanakirja.fi:443/api/search/v1/search/dictionary?keyword=demonstrates
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.platform_name = 'MOT Kielipalvelu';
 
     /**
      * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
@@ -33,14 +31,14 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
      * it can be a DOI, an internal identifier or a part of the accessed URL
      * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
      */
-    result.unitid = match[2];
+    result.unitid = param.keyword;
 
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
-    result.rtype    = 'ARTICLE';
+  } else if ((/^\/api\/search\/v\d\/machinetranslate$/i.exec(path)) !== null) {
+    // https://www.sanakirja.fi:443/api/search/v1/machinetranslate
+    result.rtype    = 'OTHER';
     result.mime     = 'HTML';
-    result.title_id = match[1];
-    result.unitid   = match[2];
+    result.title = 'Utilized machine translation tool';
+    result.platform_name = 'MOT Kielipalvelu';
   }
 
   return result;

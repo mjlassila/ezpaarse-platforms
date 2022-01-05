@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-unitid;out-rtype;out-mime;out-title;out-platform_name;in-url
+demonstrates;SEARCH;HTML;;MOT Kielipalvelu;https://www.sanakirja.fi:443/api/search/v1/search/dictionary?keyword=demonstrates
+;OTHER;HTML;Utilized machine translation tool;MOT Kielipalvelu;https://www.sanakirja.fi:443/api/search/v1/machinetranslate
