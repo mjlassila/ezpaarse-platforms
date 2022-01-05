@@ -1,0 +1,14 @@
+{
+  "longname": "MOT Kielipalvelu",
+  "name": "mot",
+  "describe": "Recognizes the accesses to the platform MOT Kielipalvelu and legacy MOT Dictionaries",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "mot.kielikone.fi",
+    "www.sanakirja.fi"
+  ],
+  "version": "2022-01-05",
+  "status": "alpha"
+}
