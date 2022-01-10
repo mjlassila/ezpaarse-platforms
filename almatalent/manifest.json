@@ -1,0 +1,17 @@
+{
+  "longname": "Alma Talent",
+  "name": "almatalent",
+  "describe": "Recognizes the accesses to the platform Alma Talent",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms/",
+  "domains": [
+    "verkkokirjahylly.almatalent.fi",
+    "bisneskirjasto.almatalent.fi",
+    "pro.almatalent.fi",
+    "suomenlaki.almatalent.fi",
+    "koulutus.almatalent.fi"
+  ],
+  "version": "2022-01-10",
+  "status": "beta"
+}
