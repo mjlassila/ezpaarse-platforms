@@ -13,8 +13,8 @@ const Parser = require('../.lib/parser.js');
 module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let result = {};
   let path   = parsedUrl.pathname;
-  // uncomment this line if you need parameters
-  // let param = parsedUrl.query || {};
+  let hostname = parsedUrl.hostname;
+  let param = parsedUrl.query || {};
 
   // use console.error for debuging
   // console.error(parsedUrl);
@@ -41,6 +41,18 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'HTML';
     result.title_id = match[1];
     result.unitid   = match[2];
+  }
+
+  if (hostname === 'verkkokirjahylly.almatalent.fi') {
+    result.publication_title = 'Verkkokirjahylly';
+  } else if (hostname === 'bisneskirjasto.almatalent.fi') {
+    result.publication_title = 'Bisneskirjasto';
+  } else if (hostname === 'pro.almatalent.fi') {
+    result.publication_title = 'Alma Talent Pro';
+  } else if (hostname === 'suomenlaki.almatalent.fi') {
+    result.publication_title = 'Suomen Laki';
+  } else if (hostname === 'koulutus.almatalent.fi') {
+    result.publication_title = 'Alma Talent Koulutus';
   }
 
   return result;
