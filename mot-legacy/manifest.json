@@ -1,0 +1,13 @@
+{
+  "longname": "MOT Online",
+  "name": "mot-legacy",
+  "describe": "Recognizes the accesses to the platform MOT Online",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "mot.kielikone.fi"
+  ],
+  "version": "2022-01-10",
+  "status": "beta"
+}
