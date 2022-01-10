@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-unitid;out-rtype;out-mime;out-title;out-platform_name;out-search_term;in-url
+userinput;SEARCH;HTML;;MOT Online (legacy);userinput;https://mot.kielikone.fi:443/mot/uta/netmot.exe?SearchWord=userinput
+BEF63ED8B55B;OTHER;HTML;Utilized machine translation tool;MOT Online (legacy);;https://mot.kielikone.fi:443/mot/uta/netmotext.exe?portal/fi/translation-main.htm&rid=BEF63ED8B55B
