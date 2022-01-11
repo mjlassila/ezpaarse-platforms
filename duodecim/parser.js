@@ -21,14 +21,10 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  result.publication_title = "Duodecim";
-
   if ((match = /^\/xmedia\/duo\/(duo[0-9]+.pdf)$/i.exec(path)) !== null) {
     // https://www.duodecimlehti.fi:443/xmedia/duo/duo16032.pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
-    result.title_id = match[1];
-
     /**
      * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
      * it described the most fine-grained of what's being accessed by the user
@@ -39,10 +35,35 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   } else if ((match = /^\/lehti\/([0-9]+)\/([0-9]+)\/(duo[0-9]+)$/i.exec(path)) !== null) {
     // https://www.duodecimlehti.fi:443/lehti/2019/21/duo15224
-    result.rtype    = 'ABS';
+    result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
     result.unitid   = match[3];
     result.publication_date = match[1];
+  } else if ((match = /^\/(duo[0-9]+)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi:443/duo15224
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'HTML';
+    result.unitid   = match[1];
+  } else if ((match = /^\/vuosikerrat\/([0-9]+)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi/vuosikerrat/2021
+    result.rtype    = 'TOC';
+    result.mime     = 'HTML';
+    result.publication_date = match[1];
+  } else if ((match = /^\/lehti\/([0-9]+)\/([0-9]+)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi/lehti/2017/24
+    result.rtype    = 'TOC';
+    result.mime     = 'HTML';
+    result.publication_date = match[1];
+    result.unitid = [match[1],match[2]].join('-');
+  } else if ((match = /^\/lehti\/(uusin|edellinen)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi/lehti/uusin
+    result.rtype    = 'TOC';
+    result.mime     = 'HTML';
+    result.unitid = match[1];
+  }
+  
+  if (result.rtype) {
+    result.publication_title = 'Duodecim';
   }
 
   return result;
