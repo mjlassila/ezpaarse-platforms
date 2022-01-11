@@ -1,0 +1,14 @@
+{
+  "longname": "Duodecim",
+  "name": "duodecim",
+  "describe": "Recognizes the accesses to the Duodecim journal",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms/",
+  "domains": [
+    "www.duodecimlehti.fi",
+    "duodecimlehti.fi"
+  ],
+  "version": "2022-01-11",
+  "status": "beta"
+}
