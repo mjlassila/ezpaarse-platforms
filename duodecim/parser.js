@@ -54,14 +54,19 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.rtype    = 'TOC';
     result.mime     = 'HTML';
     result.publication_date = match[1];
-    result.unitid = [match[1],match[2]].join('-');
+    result.unitid = [match[1], match[2]].join('-');
   } else if ((match = /^\/lehti\/(uusin|edellinen)$/i.exec(path)) !== null) {
     // https://www.duodecimlehti.fi/lehti/uusin
     result.rtype    = 'TOC';
     result.mime     = 'HTML';
     result.unitid = match[1];
+  } else if ((match = /^\/erikoisalatjaaiheet\/([a-zA-Z_0-9öäåÅÖÄ]*)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi/erikoisalatjaaiheet/Kandin_kokoelma
+    result.rtype    = 'TOC';
+    result.mime     = 'HTML';
+    result.unitid = match[1];
   }
-  
+
   if (result.rtype) {
     result.publication_title = 'Duodecim';
   }
