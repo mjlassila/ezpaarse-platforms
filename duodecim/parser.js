@@ -21,7 +21,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/xmedia\/duo\/(duo[0-9]+.pdf)$/i.exec(path)) !== null) {
+  if ((match = /^\/xmedia\/duo\/(duo[0-9]+)\.pdf$/i.exec(path)) !== null) {
     // https://www.duodecimlehti.fi:443/xmedia/duo/duo16032.pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
