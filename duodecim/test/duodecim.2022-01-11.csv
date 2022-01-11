@@ -1,1 +1,11 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-publication_title;out-publication_date;out-unitid;in-url
+ARTICLE;HTML;Duodecim;2019;duo15224;https://www.duodecimlehti.fi:443/lehti/2019/21/duo15224
+ARTICLE;HTML;Duodecim;;duo15224;https://www.duodecimlehti.fi:443/duo15224
+TOC;HTML;Duodecim;2021;;https://www.duodecimlehti.fi/vuosikerrat/2021
+TOC;HTML;Duodecim;2017;2017-24;https://www.duodecimlehti.fi/lehti/2017/24
+TOC;HTML;Duodecim;;uusin;https://www.duodecimlehti.fi/lehti/uusin
+TOC;HTML;Duodecim;;Kandin_kokoelma;https://www.duodecimlehti.fi/erikoisalatjaaiheet/Kandin_kokoelma
+ARTICLE;PDF;Duodecim;;duo16032;https://www.duodecimlehti.fi:443/xmedia/duo/duo16032.pdf
+
+
+
