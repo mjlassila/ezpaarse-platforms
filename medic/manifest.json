@@ -1,0 +1,14 @@
+{
+  "longname": "Medic",
+  "name": "medic",
+  "describe": "Recognizes the access to the Finnish medical bibliographic database Medic",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.terkko.helsinki.fi",
+    "terkko.helsinki.fi"
+  ],
+  "version": "2022-01-11",
+  "status": "beta"
+}
