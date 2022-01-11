@@ -21,8 +21,10 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+  result.publication_title = "Duodecim";
+
+  if ((match = /^\/xmedia\/duo\/(duo[0-9]+.pdf)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi:443/xmedia/duo/duo16032.pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = match[1];
@@ -33,14 +35,14 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
      * it can be a DOI, an internal identifier or a part of the accessed URL
      * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
      */
-    result.unitid = match[2];
+    result.unitid = match[1];
 
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
-    result.rtype    = 'ARTICLE';
+  } else if ((match = /^\/lehti\/([0-9]+)\/([0-9]+)\/(duo[0-9]+)$/i.exec(path)) !== null) {
+    // https://www.duodecimlehti.fi:443/lehti/2019/21/duo15224
+    result.rtype    = 'ABS';
     result.mime     = 'HTML';
-    result.title_id = match[1];
-    result.unitid   = match[2];
+    result.unitid   = match[3];
+    result.publication_date = match[1];
   }
 
   return result;
