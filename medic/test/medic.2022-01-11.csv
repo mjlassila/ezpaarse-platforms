@@ -1,1 +1,2 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-platform_name;out-unitid;in-url
+SEARCH;HTML;Medic;epilep+epilepsia epileps*;http://www.terkko.helsinki.fi:80/medic/?hakusanat=epilep&sivu=haku&mista=&alkaen=0&ratio=AND&hakusanat2=epilepsia+epileps*&mista2=&ratio2=AND&hakusanat3=&mista3=&vuosi1=&vuosi2=&synonyymit=true&kieli%5B%5D=kaikki&tyyppi%5B%5D=kaikki
