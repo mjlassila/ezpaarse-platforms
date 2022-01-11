@@ -19,13 +19,12 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   // use console.error for debuging
   // console.error(parsedUrl);
 
-  let match;
 
-  if ((match = /^\/medic\/$/i.exec(path) && param.hakusanat) !== null) {
+  if ((/^\/medic\/$/i.exec(path) && param.hakusanat) !== null) {
     // http://www.terkko.helsinki.fi:80/medic/?hakusanat=epilep&sivu=haku&mista=&alkaen=0&ratio=AND&hakusanat2=epilepsia+epileps*&mista2=&ratio2=AND&hakusanat3=&mista3=&vuosi1=&vuosi2=&synonyymit=true&kieli%5B%5D=kaikki&tyyppi%5B%5D=kaikki
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
-    result.platform_name = 'Medic'
+    result.platform_name = 'Medic';
 
     /**
      * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
@@ -34,11 +33,9 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
      * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
      */
 
-    let keywords = [param.hakusanat,param.hakusanat2,param.hakusanat3];
-    result.unitid = keywords.filter(x => typeof x === 'string' && x.length > 0).join("+");
-  
-
-  } 
+    let keywords = [param.hakusanat, param.hakusanat2, param.hakusanat3];
+    result.unitid = keywords.filter(x => typeof x === 'string' && x.length > 0).join('+');
+  }
 
   return result;
 });
