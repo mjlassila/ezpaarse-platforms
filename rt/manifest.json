@@ -1,0 +1,18 @@
+{
+  "longname": "Rakennustieto",
+  "name": "rt",
+  "describe": "Recognizes the accesses to the platform Rakennustieto",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "kortistot.rakennustieto.fi",
+    "ratupakki.rakennustieto.fi",
+    "raku.rakennustieto.fi",
+    "ryl.rakennustieto.fi",
+    "kustannuslaskenta.rakennustieto.fi",
+    "www.rakennustieto.fi"
+  ],
+  "version": "2022-01-13",
+  "status": "beta"
+}
