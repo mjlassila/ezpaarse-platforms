@@ -27,12 +27,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     // https://www.edilex.fi:443/oikeus/5134.pdf
     // https://www.edilex.fi/he/fi20200059.pdf
     // https://www.edilex.fi/lakimies/1000400001.pdf
-    
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.unitid   = match[1] + '/' + match[2];
 
-  } else if ((match = /^\/([a-z0-9_]+)\/([a-z0-9_]+)$/i.exec(path)) !== null && match[1]!=="tarkennettu_haku") {
+  } else if ((match = /^\/([a-z0-9_]+)\/([a-z0-9_]+)$/i.exec(path)) !== null && match[1] !== 'tarkennettu_haku') {
     // https://www-edilex-fi.libproxy.tuni.fi/smur/20140527
     // https://www.edilex.fi/hao/turun_hao20211525
     // https://www-edilex.fi/mt/stvm20210037
@@ -45,7 +44,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
-    result.unitid   = param.allWords;
+    result.search_term   = param.allWords;
   }
 
   return result;
