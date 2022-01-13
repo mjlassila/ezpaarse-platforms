@@ -1,1 +1,4 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;out-search_term;in-url
+ARTICLE;PDF;lakimies/1000400001.pdf;;https://www.edilex.fi/lakimies/1000400001.pdf
+ARTICLE;HTML;lainsaadanto/19980001;;https://www.edilex.fi/lainsaadanto/19980001
+SEARCH;HTML;;testihaku;https://www.edilex.fi/tarkennettu_haku/saadokset?sort=relevance&offset=1&perpage=20&allWords=testihaku&submit=Hae
