@@ -1,1 +1,8 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-publication_title;out-unitid;in-url
+ARTICLE;PDF;RT-kustannuslaskenta;;https://kustannuslaskenta.rakennustieto.fi/report/pdf
+ARTICLE;HTML;RatuPakki;74AH;https://ratupakki.rakennustieto.fi/content/74AH
+ARTICLE;HTML;InfraRYL;InfraRYL/2020_2/45311.html;https://ryl.rakennustieto.fi/card-body/ryl/InfraRYL/2020_2/45311.html
+ARTICLE;PDF;infraryl;infraryl/Infra_2015_Maaramittausohje.pdf;https://www.rakennustieto.fi/html/liitteet/infraryl/Infra_2015_Maaramittausohje.pdf
+ARTICLE;HTML;RT-kortisto;RT 10-11223;https://kortistot.rakennustieto.fi/kortit/RT%2010-11223
+SEARCH;HTML;RT-kortisto;rakennuttaminen;https://rt.rakennustieto.fi/api/search/search?q=rakennuttaminen
+SEARCH;HTML;RT-kortisto;RT 10-11284;https://kortistot.rakennustieto.fi/api/search/docs?k=RT%2010-11284

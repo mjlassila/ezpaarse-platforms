@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
+const { result } = require('lodash');
 const Parser = require('../.lib/parser.js');
 
 /**
@@ -15,7 +16,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let path   = parsedUrl.pathname;
   let hostname = parsedUrl.hostname;
   // uncomment this line if you need parameters
-  // let param = parsedUrl.query || {};
+  let param = parsedUrl.query || {};
 
   // use console.error for debuging
   // console.error(parsedUrl);
@@ -46,16 +47,25 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'PDF';
     result.publication_title = match[1];
     result.unitid   = match[1] + '/' + match[2];
-  }
+  } else if ((match = /^\/kortit\/([A-Z0-9-%\s]+)$/i.exec(path)) !== null) {
+    // https://kortistot.rakennustieto.fi:443/kortit/RT%2010-11223
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'HTML';
+    result.publication_title = 'RT-kortisto';
+    result.unitid   = decodeURI(match[1]);
+  } else if ((match = /^\/api\/\/search\/[(a-z]+)$/i.exec(path)) !== null) {
+    // https://rt.rakennustieto.fi:443/api/search/search?q=rakennuttaminen
+    // https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11284
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.publication_title = 'RT-kortisto';
+    if (param.k) {
+      result.unitid   = param.k;
+    }
+    else if (param.q) {
+      result.unitid = param.q;
+    }
+  } 
 
   return result;
 });
-
-// https://ryl.rakennustieto.fi:443/ryl/infraryl/2020_2/
-// h
-// https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11223
-// https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11284
-// https://kortistot.rakennustieto.fi:443/kortit/RT%2010-11223
-// https://raku.rakennustieto.fi:443/favicon.ico (raku is an external service, so we can only track loading of the frontpage)
-// https://www.rakennustieto.fi:443/html/liitteet/infraryl/Infra_2015_Maaramittausohje.pdf
-// https://rt.rakennustieto.fi:443/api/search/search?q=rakennuttaminen

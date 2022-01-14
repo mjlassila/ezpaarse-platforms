@@ -11,7 +11,8 @@
     "raku.rakennustieto.fi",
     "ryl.rakennustieto.fi",
     "kustannuslaskenta.rakennustieto.fi",
-    "www.rakennustieto.fi"
+    "www.rakennustieto.fi",
+    "rt.rakennustieto.fi"
   ],
   "version": "2022-01-13",
   "status": "beta"
