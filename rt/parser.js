@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
-const { result } = require('lodash');
+//const { result } = require('lodash');
 const Parser = require('../.lib/parser.js');
 
 /**
@@ -53,7 +53,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'HTML';
     result.publication_title = 'RT-kortisto';
     result.unitid   = decodeURI(match[1]);
-  } else if ((match = /^\/api\/\/search\/[(a-z]+)$/i.exec(path)) !== null) {
+  } else if ((match = /^\/api\/search\/[a-z]+$/i.exec(path)) !== null) {
     // https://rt.rakennustieto.fi:443/api/search/search?q=rakennuttaminen
     // https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11284
     result.rtype    = 'SEARCH';
@@ -65,7 +65,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     else if (param.q) {
       result.unitid = param.q;
     }
-  } 
+  }
 
   return result;
 });
