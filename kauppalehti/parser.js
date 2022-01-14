@@ -22,7 +22,10 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let match;
 
   if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+    // https://www.kauppalehti.fi:443/uutiset/raisio-niputtaa-tuotteet-muutaman-paamerkin-alle/449b1101-4957-3290-8752-0ef33ca24225
+    // https://www.kauppalehti.fi:443/haku/uutiset/valmet
+    // https://www.kauppalehti.fi:443/porssi/porssikurssit/osake/SAMPO
+    // https://www.kauppalehti.fi:443/api/search/v2/articles/kl/Lohkoketju/0/20
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = match[1];
