@@ -13,6 +13,7 @@ const Parser = require('../.lib/parser.js');
 module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let result = {};
   let path   = parsedUrl.pathname;
+  let hostname = parsedUrl.hostname;
   // uncomment this line if you need parameters
   // let param = parsedUrl.query || {};
 
@@ -21,27 +22,40 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+  if ((match = /^\/report\/pdf$/i.exec(path)) !== null && hostname === 'kustannuslaskenta.rakennustieto.fi') {
+    // // https://kustannuslaskenta.rakennustieto.fi:443/report/pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
-    result.title_id = match[1];
+    result.publication_title = 'RT-kustannuslaskenta';
 
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
-    result.unitid = match[2];
-
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
+  } else if ((match = /^\/content\/([A-Z0-9]+)$/i.exec(path)) !== null && hostname === 'ratupakki.rakennustieto.fi') {
+    // https://ratupakki.rakennustieto.fi:443/content/74AH
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
-    result.title_id = match[1];
-    result.unitid   = match[2];
+    result.publication_title = 'RatuPakki';
+    result.unitid   = match[1];
+  } else if ((match = /^\/card-body\/ryl\/([a-zA-Z0-9]+)\/([0-9_]+)\/([0-9]+\.html)$/i.exec(path)) !== null && hostname === 'ryl.rakennustieto.fi') {
+    // https://ryl.rakennustieto.fi:443/card-body/ryl/InfraRYL/2020_2/45311.html
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'HTML';
+    result.publication_title = match[1];
+    result.unitid   = match[1] + '/' + match[2] + '/' + match[3];
+  } else if ((match = /^\/html\/liitteet\/([a-zA-Z0-9_]+)\/([A-Za-z0-9_]+\.pdf)$/i.exec(path)) !== null) {
+    // https://www.rakennustieto.fi:443/html/liitteet/infraryl/Infra_2015_Maaramittausohje.pdf
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'PDF';
+    result.publication_title = match[1];
+    result.unitid   = match[1] + '/' + match[2];
   }
 
   return result;
 });
+
+// https://ryl.rakennustieto.fi:443/ryl/infraryl/2020_2/
+// h
+// https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11223
+// https://kortistot.rakennustieto.fi:443/api/search/docs?k=RT%2010-11284
+// https://kortistot.rakennustieto.fi:443/kortit/RT%2010-11223
+// https://raku.rakennustieto.fi:443/favicon.ico (raku is an external service, so we can only track loading of the frontpage)
+// https://www.rakennustieto.fi:443/html/liitteet/infraryl/Infra_2015_Maaramittausohje.pdf
+// https://rt.rakennustieto.fi:443/api/search/search?q=rakennuttaminen
