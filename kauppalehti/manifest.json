@@ -1,0 +1,14 @@
+{
+  "longname": "Kauppalehti",
+  "name": "kauppalehti",
+  "describe": "Recognizes the accesses to the platform Kauppalehti",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.kauppalehti.fi",
+    "kauppalehti.fi"
+  ],
+  "version": "2022-01-14",
+  "status": "beta"
+}
