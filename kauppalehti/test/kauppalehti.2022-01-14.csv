@@ -1,1 +1,8 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;in-url
+ARTICLE;HTML;uutiset/raisio-niputtaa-tuotteet-muutaman-paamerkin-alle;https://www.kauppalehti.fi/uutiset/raisio-niputtaa-tuotteet-muutaman-paamerkin-alle/449b1101-4957-3290-8752-0ef33ca24225
+ARTICLE;HTML;porssi/porssikurssit/osake/SAMPO;https://www.kauppalehti.fi:443/porssi/porssikurssit/osake/SAMPO
+ARTICLE;HTML;porssi/vaihdetuimmat;https://www.kauppalehti.fi:443/porssi/vaihdetuimmat
+SEARCH;HTML;uutiset/valmet;https://www.kauppalehti.fi:443/haku/uutiset/valmet
+SEARCH;HTML;articles/kl/Lohkoketju/0/20;https://www.kauppalehti.fi:443/api/search/v2/articles/kl/Lohkoketju/0/20
+
+
