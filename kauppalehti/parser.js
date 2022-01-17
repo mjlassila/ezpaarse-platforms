@@ -21,29 +21,33 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
+  if ((match = /^\/uutiset\/([a-z\-]+)\/[a-z0-9-]+$/i.exec(path)) !== null) {
     // https://www.kauppalehti.fi:443/uutiset/raisio-niputtaa-tuotteet-muutaman-paamerkin-alle/449b1101-4957-3290-8752-0ef33ca24225
     // https://www.kauppalehti.fi:443/haku/uutiset/valmet
     // https://www.kauppalehti.fi:443/porssi/porssikurssit/osake/SAMPO
     // https://www.kauppalehti.fi:443/api/search/v2/articles/kl/Lohkoketju/0/20
     result.rtype    = 'ARTICLE';
-    result.mime     = 'PDF';
-    result.title_id = match[1];
+    result.mime     = 'HTML';
+    result.unitid = 'uutiset/' + match[1];
 
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
-    result.unitid = match[2];
-
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
+  } else if ((match = /^\/(porssi\/[a-z-/]+)$/i.exec(path)) !== null) {
+    // https://www.kauppalehti.fi:443/porssi/porssikurssit/osake/SAMPO
+    // https://www.kauppalehti.fi:443/porssi/vaihdetuimmat
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
-    result.title_id = match[1];
-    result.unitid   = match[2];
+    result.unitid   = match[1];
+  } else if ((match = /^\/haku\/([a-z_0-9/-]+)$/i.exec(path)) !== null) {
+    // https://www.kauppalehti.fi:443/haku/uutiset/valmet
+    // https://www.kauppalehti.fi:443/api/search/v2/articles/kl/Lohkoketju/0/20
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.unitid   = match[1];
+  } else if ((match = /^\/api\/search\/v2\/(.*)$/i.exec(path)) !== null) {
+    // https://www.kauppalehti.fi:443/haku/uutiset/valmet
+    // https://www.kauppalehti.fi:443/api/search/v2/articles/kl/Lohkoketju/0/20
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.unitid   = match[1];
   }
 
   return result;
