@@ -1,0 +1,13 @@
+{
+  "longname": "Elektra",
+  "name": "elektra",
+  "describe": "Recognizes the access to Elektra (Finnish scientific journals)",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "elektra.helsinki.fi"
+  ],
+  "version": "2022-01-18",
+  "status": "beta"
+}
