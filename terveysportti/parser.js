@@ -32,6 +32,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     // https://www.terveysportti.fi:443/terveysportti/haku.koti?p_db=TP&p_haku=L%C3%A5%C3%A4keinterakti
     result.rtype    = 'OTHER';
     result.mime     = 'HTML';
+    result.title_id = 'apps';
     result.unitid = match[1];
   } else if ((match = /^\/dtk\/([a-z0-9]+)\/avaa$/i.exec(path)) !== null) {
     // https://www.terveysportti.fi:443/dtk/pit/avaa?p_artikkeli=alr00190
@@ -41,7 +42,6 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.title_id = 'dtk/' + match[1];
     result.unitid   = param.p_artikkeli;
   } else if ((match = /^\/dtk\/([a-z0-9]+)\/haku$/i.exec(path)) !== null) {
-    // 
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
     result.title_id = 'dtk/' + match[1];
