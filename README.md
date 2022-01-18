@@ -1,11 +1,27 @@
 ezpaarse-platforms
 ==================
 
-[![Build Status](https://travis-ci.org/ezpaarse-project/ezpaarse-platforms.svg?branch=master)](https://travis-ci.org/ezpaarse-project/ezpaarse-platforms)
-[![bitHound Overall Score](https://www.bithound.io/github/ezpaarse-project/ezpaarse-platforms/badges/score.svg)](https://www.bithound.io/github/ezpaarse-project/ezpaarse-platforms)
-  
+Additional ezPAARSE log parsers for services commonly used in Finland university libraries.
 
-Platforms parsers, scrapers and PKBs for ezPAARSE
+
+Services including:
+
+* Sanakirja.fi
+* MOT Kielipalvelu
+* Alma Talent
+* Duodecim Terveysportti
+* Duodecim Oppiportti
+* Medic
+* Rakennustieto
+* SFS Online
+* Edilex
+* Kauppalehti Online
+* Elektra
+* Duodecim
+
+Check branches of this repository for each individual parser.
+
+
 
 ## Running tests
 ```bash
@@ -15,8 +31,8 @@ Platforms parsers, scrapers and PKBs for ezPAARSE
   # Test all platforms
   make test
   
-  # Test only SD and NPG
-  make test sd npg
+  # Test only Elektra and Duodecim
+  make test elektra duodecim
   
   # Initialize a new parser
   make init
