@@ -1,7 +1,7 @@
 ezpaarse-platforms
 ==================
 
-Additional ezPAARSE log parsers for services commonly used in Finland university libraries.
+Additional ezPAARSE log parsers for services commonly used in Finnish University Libraries.
 
 
 Services including:
