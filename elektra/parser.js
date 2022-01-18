@@ -21,7 +21,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/([a-z0-9-/\.]+)$/i.exec(path)) !== null) {
+  if ((match = /^\/([a-z0-9-/.]+)$/i.exec(path)) !== null) {
     // http://elektra.helsinki.fi:80/se/k/0022-927-x/37/1/vallanku.pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
