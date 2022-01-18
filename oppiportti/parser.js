@@ -22,8 +22,8 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let match;
 
   if ((match = /^\/op\/([a-z]{3})([0-9]+)\/?(do|avaa)?$/i.exec(path)) !== null) {
-    // https://www.oppiportti.fi/op/kbk00170/
-    // https://www.oppiportti.fi/op/opk04637 (oppikirjat esittelysivu)
+    // https://www.oppiportti.fi/op/kbk00170/ (oppikirjan sisältö)
+    // https://www.oppiportti.fi/op/opk04637 (oppikirja)
     // https://www.oppiportti.fi/op/lko00015 (laitekoulutukset)
     // https://www.oppiportti.fi/op/owb00016 (webinaarit)
     // https://www.oppiportti.fi/op/olk00012 (luennot)
@@ -31,11 +31,9 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     // https://www.oppiportti.fi/op/ott00013 (testit)
     // https://www.oppiportti.fi/op/dvk00191 (verkkokurssit)
     // https://www.oppiportti.fi/op/ovr00003 (virtuaaliharjoitukset)
-    
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
     result.unitid = match[1] + match[2];
-    
     let section_id = match[1];
 
     if (section_id === 'opk') {
@@ -43,19 +41,25 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
       result.rtype = 'BOOK';
     } else if (section_id === 'lko') {
       result.title_id = 'laitekoulutus';
+      result.rtype = 'OTHER';
     } else if (section_id === 'owb') {
       result.title_id = 'webinaari';
+      result.rtype = 'OTHER';
     } else if (section_id === 'olk') {
       result.title_id = 'luento';
+      result.rtype = 'VIDEO';
     } else if (section_id === 'vdu') {
       result.title_id = 'video';
-      result.rtype = "VIDEO";
+      result.rtype = 'VIDEO';
     } else if (section_id === 'ott') {
       result.title_id = 'testi';
+      result.rtype = 'OTHER';
     } else if (section_id === 'dvk') {
       result.title_id = 'verkkokurssi';
+      result.rtype = 'OTHER';
     } else if (section_id === 'ovr') {
       result.title_id = 'harjoitus';
+      result.rtype = 'OTHER';
     } else if (match[2] && match[3] == 'do' && !result.title_id) {
       result.title_id = 'oppikirja';
       result.rtype = 'BOOK';
@@ -64,10 +68,6 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     if (!match[3]) {
       result.rtype = 'PREVIEW';
     }
-
-
-
-   
 
   } else if ((match = /^\/op\/xhakutulos$/i.exec(path)) !== null) {
     // https://www.oppiportti.fi/op/xhakutulos?p_haku=farmakologia
