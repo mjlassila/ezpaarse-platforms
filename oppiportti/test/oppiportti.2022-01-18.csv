@@ -1,1 +1,11 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-title_id;out-unitid;in-url
+BOOK;HTML;oppikirja;kbk00170;https://www.oppiportti.fi/op/kbk00170/do
+PREVIEW;HTML;oppikirja;opk04637;https://www.oppiportti.fi/op/opk04637
+PREVIEW;HTML;laitekoulutus;lko00015;https://www.oppiportti.fi/op/lko00015
+PREVIEW;HTML;webinaari;owb00016;https://www.oppiportti.fi/op/owb00016
+VIDEO;HTML;luento;olk00012;https://www.oppiportti.fi/op/olk00012/avaa
+VIDEO;HTML;video;vdu00019;https://www.oppiportti.fi/op/vdu00019/avaa
+OTHER;HTML;testi;ott00013;https://www.oppiportti.fi/op/ott00013/avaa
+OTHER;HTML;verkkokurssi;dvk00191;https://www.oppiportti.fi/op/dvk00191/avaa
+OTHER;HTML;harjoitus;ovr00003;https://www.oppiportti.fi/op/ovr00003/avaa
+SEARCH;HTML;;farmakologia;https://www.oppiportti.fi/op/xhakutulos?p_haku=farmakologia
