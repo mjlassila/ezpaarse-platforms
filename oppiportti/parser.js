@@ -14,42 +14,66 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let result = {};
   let path   = parsedUrl.pathname;
   // uncomment this line if you need parameters
-  // let param = parsedUrl.query || {};
+  let param = parsedUrl.query || {};
 
   // use console.error for debuging
   // console.error(parsedUrl);
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // https://www.oppiportti.fi/op/kbk00170/do (oppikirjan sisältö, do-lopussa)
+  if ((match = /^\/op\/([a-z]{3})([0-9]+)\/?(do|avaa)?$/i.exec(path)) !== null) {
+    // https://www.oppiportti.fi/op/kbk00170/
     // https://www.oppiportti.fi/op/opk04637 (oppikirjat esittelysivu)
     // https://www.oppiportti.fi/op/lko00015 (laitekoulutukset)
     // https://www.oppiportti.fi/op/owb00016 (webinaarit)
     // https://www.oppiportti.fi/op/olk00012 (luennot)
     // https://www.oppiportti.fi/op/vdu00019 (videot)
     // https://www.oppiportti.fi/op/ott00013 (testit)
-    // https://www.oppiportti.fi/op/dvk00191 (verkkokurssit) https://www.oppiportti.fi/op/dvk00191/avaa
+    // https://www.oppiportti.fi/op/dvk00191 (verkkokurssit)
     // https://www.oppiportti.fi/op/ovr00003 (virtuaaliharjoitukset)
-    // muissa paitsi kirjoissa lopussa avaa tarkoittaa sisällön avaamista
+    
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
-    result.title_id = match[1];
+    result.unitid = match[1] + match[2];
+    
+    let section_id = match[1];
 
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
-    result.unitid = match[2];
+    if (section_id === 'opk') {
+      result.title_id = 'oppikirja';
+      result.rtype = 'BOOK';
+    } else if (section_id === 'lko') {
+      result.title_id = 'laitekoulutus';
+    } else if (section_id === 'owb') {
+      result.title_id = 'webinaari';
+    } else if (section_id === 'olk') {
+      result.title_id = 'luento';
+    } else if (section_id === 'vdu') {
+      result.title_id = 'video';
+      result.rtype = "VIDEO";
+    } else if (section_id === 'ott') {
+      result.title_id = 'testi';
+    } else if (section_id === 'dvk') {
+      result.title_id = 'verkkokurssi';
+    } else if (section_id === 'ovr') {
+      result.title_id = 'harjoitus';
+    } else if (match[2] && match[3] == 'do' && !result.title_id) {
+      result.title_id = 'oppikirja';
+      result.rtype = 'BOOK';
+    }
 
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
+    if (!match[3]) {
+      result.rtype = 'PREVIEW';
+    }
+
+
+
+   
+
+  } else if ((match = /^\/op\/xhakutulos$/i.exec(path)) !== null) {
     // https://www.oppiportti.fi/op/xhakutulos?p_haku=farmakologia
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
-    result.title_id = match[1];
-    result.unitid   = match[2];
+    result.unitid   = param.p_haku;
   }
 
   return result;
