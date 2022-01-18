@@ -1,1 +1,7 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-title_id;out-unitid;in-url
+OTHER;HTML;apps;icd;https://www.terveysportti.fi:443/apps/icd
+OTHER;HTML;;diagnoosi.dg_diagnoosi;https://www.terveysportti.fi:443/terveysportti/diagnoosi.dg_diagnoosi.koti
+ARTICLE;HTML;dtk/pit;alr00190;https://www.terveysportti.fi:443/dtk/pit/avaa?p_artikkeli=alr00190
+ARTICLE;HTML;dtk/vso;prv00038;https://www.terveysportti.fi:443/dtk/vso/avaa?p_artikkeli=prv00038
+SEARCH;HTML;dtk/aho;verikaasu;https://www.terveysportti.fi:443/dtk/aho/haku?p_haku=verikaasu
+SEARCH;HTML;TP;Låäkeinterakti;https://www.terveysportti.fi:443/terveysportti/haku.koti?p_db=TP&p_haku=L%C3%A5%C3%A4keinterakti
