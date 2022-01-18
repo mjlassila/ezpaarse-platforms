@@ -1,0 +1,13 @@
+{
+  "longname": "SFS Online",
+  "name": "sfs-online",
+  "describe": "Recognizes the accesses to the platform SFS Online",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "online.sfs.fi"
+  ],
+  "version": "2022-01-18",
+  "status": "beta"
+}
