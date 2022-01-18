@@ -1,0 +1,15 @@
+{
+  "longname": "Duodecim Terveysportti",
+  "name": "terveysportti",
+  "describe": "Recognizes the accesses to the platform Duodecim Terveysportti",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "terveysportti.fi",
+    "www.terveysportti.fi",
+    "terveysportti.mobi"
+  ],
+  "version": "2022-01-18",
+  "status": "beta"
+}
