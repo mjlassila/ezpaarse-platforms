@@ -1,0 +1,14 @@
+{
+  "longname": "Duodecim Oppiportti",
+  "name": "oppiportti",
+  "describe": "Recognizes the accesses to the platform Duodecim Oppiportti",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.oppiportti.fi",
+    "oppiportti.fi"
+  ],
+  "version": "2022-01-18",
+  "status": "beta"
+}
