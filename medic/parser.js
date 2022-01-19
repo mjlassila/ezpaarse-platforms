@@ -36,6 +36,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     let keywords = [param.hakusanat, param.hakusanat2, param.hakusanat3];
     result.unitid = keywords.filter(x => typeof x === 'string' && x.length > 0).join('+');
   }
+  // Do not output result if search keyword is missing.
+  if (!result.unitid) {
+    result = {};
+  }
 
   return result;
+
 });
