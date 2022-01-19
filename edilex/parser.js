@@ -31,7 +31,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'PDF';
     result.unitid   = match[1] + '/' + match[2];
 
-  } else if ((match = /^\/([a-z0-9_]+)\/([a-z0-9_]+)$/i.exec(path)) !== null && match[1] !== 'tarkennettu_haku') {
+  } else if ((match = /^\/([a-z0-9_]+)\/([a-z0-9_]+)$/i.exec(path)) !== null && match[1] !== 'tarkennettu_haku' && match[2] !== 'asiasanat' && match[2] !== 'pikahaku' && match[1] !== 'asiasanat') {
     // https://www-edilex-fi.libproxy.tuni.fi/smur/20140527
     // https://www.edilex.fi/hao/turun_hao20211525
     // https://www-edilex.fi/mt/stvm20210037
@@ -44,7 +44,18 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
-    result.search_term   = param.allWords;
+    result.unitid  = param.allWords;
+  } else if ((match = /^\/[a-z]+\/pikahaku/i.exec(path)) !== null) {
+    // https://www.edilex.fi:443/kho/pikahaku?offset=1&perpage=20&typeIds%5B%5D=7&typeIds%5B%5D=8&typeIds%5B%5D=9&phrase=yhdenvertaisuus&submit=Hae
+
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.unitid   = param.phrase;
+  }
+
+  // Do not output login events or search keyword autocompletes
+  if (result.unitid == 'auth/login' || result.unitid == 'haku/ajax' || !result.unitid) {
+    result = {};
   }
 
   return result;
