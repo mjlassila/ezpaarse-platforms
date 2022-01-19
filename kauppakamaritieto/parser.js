@@ -22,7 +22,15 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let match;
 
   if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+    // https://kauppakamaritieto.fi/ammattikirjasto/teos/radikaali-uudistuminen-2021
+    // https://kauppakamaritieto.fi:443/fi/s/ak/kirjat/henkiloyhtion-oikeusasema-tuloverotuksessa-2013/
+    // https://kauppakamaritieto.fi/tietopalvelut/tietopalvelu-ulkomaankauppa
+    // https://kauppakamaritieto.fi/tietopalvelut/teos/alv
+    // https://kauppakamaritieto.fi/artikkelit/arvoseteleiden-arvonlisaverotus-muuttuu
+    // https://kauppakamaritieto.fi:443/haku/ulkomaankaupan+asiakirjat/tietopalvelu
+    // https://kauppakamaritieto.fi:443/TimePub/Reader.svc/SearchMulti (search keyword available in referer, this is POST)
+    // https://kauppakamaritieto.fi:443/TimePub/Reader.svc/SearchMany (search keyword available in referer, this is POST)
+
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = match[1];
