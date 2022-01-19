@@ -60,7 +60,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     } else if (section_id === 'ovr') {
       result.title_id = 'harjoitus';
       result.rtype = 'OTHER';
-    } else if (match[2] && match[3] == 'do' && !result.title_id) {
+    } else if (match[3] == 'do' && !result.title_id) {
       result.title_id = 'oppikirja';
       result.rtype = 'BOOK';
     }
