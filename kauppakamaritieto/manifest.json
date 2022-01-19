@@ -1,0 +1,14 @@
+{
+  "longname": "KauppakamariTieto",
+  "name": "kauppakamaritieto",
+  "describe": "Recognizes the accesses to the platform KauppakamariTieto",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.kauppakamaritieto.fi",
+    "kauppakamaritieto.fi"
+  ],
+  "version": "2022-01-19",
+  "status": "beta"
+}
