@@ -1,1 +1,8 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;in-url
+BOOK;HTML;radikaali-uudistuminen-2021;https://kauppakamaritieto.fi/ammattikirjasto/teos/radikaali-uudistuminen-2021
+BOOK;HTML;alv;https://kauppakamaritieto.fi/tietopalvelut/teos/alv
+BOOK;HTML;henkiloyhtion-oikeusasema-tuloverotuksessa-2013;https://kauppakamaritieto.fi/fi/s/ak/kirjat/henkiloyhtion-oikeusasema-tuloverotuksessa-2013/
+ARTICLE;HTML;arvoseteleiden-arvonlisaverotus-muuttuu;https://kauppakamaritieto.fi/artikkelit/arvoseteleiden-arvonlisaverotus-muuttuu
+SEARCH;HTML;ulkomaankaupan+asiakirjat;https://kauppakamaritieto.fi/haku/ulkomaankaupan+asiakirjat/tietopalvelu
+SEARCH;HTML;;https://kauppakamaritieto.fi/TimePub/Reader.svc/SearchMulti
+SEARCH;HTML;;https://kauppakamaritieto.fi/TimePub/Reader.svc/SearchMany
