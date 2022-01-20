@@ -22,7 +22,12 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let match;
 
   if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+    // https://www.scival.com:443/trends/summary/topInstitutions
+    // https://www.scival.com:443/overview/summary?uri=Customer%2F0%2FResearchArea%2F143588
+    // https://www.scival.com:443/benchmarking
+    //  https://www.scival.com:443/benchmarking/analyse
+    // https://www.scival.com:443/overview/discipline/disciplineData
+    // https://www.scival.com:443/overview?uri=Customer/0/ResearchArea/143588
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = match[1];
