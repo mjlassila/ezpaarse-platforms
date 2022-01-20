@@ -21,34 +21,39 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
+  if ((match = /^\/(ammattikirjasto|tietopalvelut)\/teos\/([a-z0-9-]+)$/i.exec(path)) !== null) {
     // https://kauppakamaritieto.fi/ammattikirjasto/teos/radikaali-uudistuminen-2021
+    // https://kauppakamaritieto.fi/tietopalvelut/teos/alv
     // https://kauppakamaritieto.fi:443/fi/s/ak/kirjat/henkiloyhtion-oikeusasema-tuloverotuksessa-2013/
     // https://kauppakamaritieto.fi/tietopalvelut/tietopalvelu-ulkomaankauppa
-    // https://kauppakamaritieto.fi/tietopalvelut/teos/alv
     // https://kauppakamaritieto.fi/artikkelit/arvoseteleiden-arvonlisaverotus-muuttuu
     // https://kauppakamaritieto.fi:443/haku/ulkomaankaupan+asiakirjat/tietopalvelu
     // https://kauppakamaritieto.fi:443/TimePub/Reader.svc/SearchMulti (search keyword available in referer, this is POST)
     // https://kauppakamaritieto.fi:443/TimePub/Reader.svc/SearchMany (search keyword available in referer, this is POST)
 
-    result.rtype    = 'ARTICLE';
-    result.mime     = 'PDF';
-    result.title_id = match[1];
-
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
+    result.rtype    = 'BOOK';
+    result.mime     = 'HTML';
     result.unitid = match[2];
 
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
+  } else if ((match = /^\/fi\/s\/ak\/kirjat\/([a-z0-9-]+)\/*$/i.exec(path)) !== null) {
+    // https://kauppakamaritieto.fi:443/fi/s/ak/kirjat/henkiloyhtion-oikeusasema-tuloverotuksessa-2013/
+    result.rtype    = 'BOOK';
+    result.mime     = 'HTML';
+    result.unitid   = match[1];
+  } else if ((match = /^\/(artikkelit|tietopalvelut)\/([a-z0-9-/]+)$/i.exec(path)) !== null) {
+    // https://kauppakamaritieto.fi/artikkelit/arvoseteleiden-arvonlisaverotus-muuttuu
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
-    result.title_id = match[1];
     result.unitid   = match[2];
+  } else if ((match = /^\/haku\/([a-z0-9-/+]+)\/[a-z0-9-]+$/i.exec(path)) !== null) {
+    // https://kauppakamaritieto.fi/haku/ulkomaankaupan+asiakirjat/tietopalvelu
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
+    result.unitid   = match[1];
+  } else if ((match = /^\/TimePub\/Reader.svc\/(SearchMulti|SearchMany)$/i.exec(path)) !== null) {
+    // https://kauppakamaritieto.fi/haku/ulkomaankaupan+asiakirjat/tietopalvelu
+    result.rtype    = 'SEARCH';
+    result.mime     = 'HTML';
   }
 
   return result;
