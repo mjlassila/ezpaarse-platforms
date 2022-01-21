@@ -1,1 +1,6 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;out-search_term;in-url
+ARTICLE;PDF;item/2159;pistorasiat;https://severi.sahkoinfo.fi/item/2159?search=pistorasiat
+ARTICLE;HTML;news/498;;https://severi.sahkoinfo.fi:443/Content/Index/0?newsid=498
+ARTICLE;PDF;2773;;https://severi-sahkoinfo-fi.libproxy.tuni.fi/Magazine/Open/2773 
+SEARCH;HTML;905;;https://severi.sahkoinfo.fi:443/Browse/MetaItems_Read/905
+SEARCH;HTML;6;;https://severi.sahkoinfo.fi:443/Browse/JsonProductList?id=6
