@@ -14,7 +14,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let result = {};
   let path   = parsedUrl.pathname;
   // uncomment this line if you need parameters
-  // let param = parsedUrl.query || {};
+  let param = parsedUrl.query || {};
 
   // use console.error for debuging
   // console.error(parsedUrl);
@@ -22,7 +22,14 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   let match;
 
   if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.pdf?sequence=1
+    // https://www.fulcrum.org/epubs/h989r533k?locale=en (read online)
+    // https://www.fulcrum.org/heb?f[creator_sim][]=Abbate%2C+Carolyn&locale=en
+    // https://www.fulcrum.org/heb?f[subject_sim][]=African&locale=en
+    // https://www.fulcrum.org/heb?f%5Bpublisher_sim%5D%5B%5D=ABC+International+Group&locale=en
+    // https://www.fulcrum.org/heb?f%5Bseries_sim%5D%5B%5D=%28Fordham+Series+in+Medieval+Studies%29&locale=en
+    // https://www.fulcrum.org/heb?locale=en&page=2
+    // https://www.fulcrum.org/heb?utf8=%E2%9C%93&locale=en&press=heb&q=struggle
+
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = match[1];
@@ -36,12 +43,26 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.unitid = match[2];
 
   } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // http://parser.skeleton.js/platform/path/to/document-123456-test.html?sequence=1
-    result.rtype    = 'ARTICLE';
+    // https://www.fulcrum.org/epubs_download_interval/h989r533k?chapter_index=0&locale=en&title=Title+Page (download)
+    result.rtype    = 'BOOK_CHAPTER';
     result.mime     = 'HTML';
     result.title_id = match[1];
-    result.unitid   = match[2];
+    result.unitid   = match[1] + '/' + param.chapter_index;
   }
 
   return result;
 });
+
+// Some of current Fulcrum users
+
+// https://www.fulcrum.org/heb (ACLS Humanities Ebook)
+// https://www.fulcrum.org/barpublishing (Bar Publishing)
+// https://www.fulcrum.org/amherst (Amherst College Press)
+// https://www.fulcrum.org/minnesota (University of Minnesota Press)
+// https://www.fulcrum.org/leverpress (Lever Press)
+// https://www.fulcrum.org/michigan (University of Michigan Press)
+// https://www.fulcrum.org/northwestern (Northwester University Press)
+// https://www.fulcrum.org/sussex (University of Sussex Press)
+
+
+
