@@ -41,7 +41,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.unitid   = 'erikoisalat/' + match[1] ;
   } else if ((match = /^\/sisallysluettelo/i.exec(path)) !== null) {
     // https://www.laakarilehti.fi/sisallysluettelo/?year=1992&magazine=15601
-    result.rtype    = 'SEARCH';
+    result.rtype    = 'TOC';
     result.mime     = 'HTML';
     result.unitid   = param.year + '/' + param.magazine;
   } else if ((match = /^\/haku/i.exec(path)) !== null) {
@@ -49,6 +49,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
     result.search_term   = [param.q, param.keywords].join(' ');
+  } else if ((match = /^\/([a-z0-9-]+)\/([a-z0-9-/.]*)/i.exec(path)) !== null & match[1]!=='erikoisalat' & match[2] !== 'sisallysluettelo' & match[3] !== 'haku') {
+    // https://www.laakarilehti.fi/sisallysluettelo/?year=1992&magazine=15601
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'HTML';
+    result.unitid   = match[1] + '/' + match[2];
   }
 
   return result;
