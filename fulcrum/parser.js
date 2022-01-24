@@ -21,48 +21,32 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.pdf)$/i.exec(path)) !== null) {
+  if ((match = /^\/epubs\/([a-z0-9]+)$/i.exec(path)) !== null) {
     // https://www.fulcrum.org/epubs/h989r533k?locale=en (read online)
-    // https://www.fulcrum.org/heb?f[creator_sim][]=Abbate%2C+Carolyn&locale=en
-    // https://www.fulcrum.org/heb?f[subject_sim][]=African&locale=en
-    // https://www.fulcrum.org/heb?f%5Bpublisher_sim%5D%5B%5D=ABC+International+Group&locale=en
-    // https://www.fulcrum.org/heb?f%5Bseries_sim%5D%5B%5D=%28Fordham+Series+in+Medieval+Studies%29&locale=en
-    // https://www.fulcrum.org/heb?locale=en&page=2
-    // https://www.fulcrum.org/heb?utf8=%E2%9C%93&locale=en&press=heb&q=struggle
 
-    result.rtype    = 'ARTICLE';
-    result.mime     = 'PDF';
-    result.title_id = match[1];
+    result.rtype    = 'BOOK_SECTION';
+    result.mime     = 'HTML';
+    result.unitid = match[1];
 
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
-    result.unitid = match[2];
-
-  } else if ((match = /^\/platform\/path\/to\/(document-([0-9]+)-test\.html)$/i.exec(path)) !== null) {
-    // https://www.fulcrum.org/epubs_download_interval/h989r533k?chapter_index=0&locale=en&title=Title+Page (download)
-    result.rtype    = 'BOOK_CHAPTER';
+  } else if ((match = /^\/(epubs_download_interval|epubs_download_chapter)\/([a-z0-9]+)$/i.exec(path)) !== null) {
+    // https://www.fulcrum.org/epubs_download_interval/h989r533k?chapter_index=0&locale=en&title=Title+Page
+    result.rtype    = 'BOOK_SECTION';
+    result.mime     = 'EPUB';
+    result.title_id = match[2];
+    result.unitid   = match[2] + '/' + param.chapter_index;
+  } else if ((match = /^\/ebooks\/([a-z0-9]+)\/download$/i.exec(path)) !== null) {
+    // https://www.fulcrum.org/ebooks/h989r533k/download
+    result.rtype    = 'BOOK';
+    // Mime could be also PDF or MOBI but for simplicity, let's use EPUB
+    result.mime     = 'EPUB';
+    result.unitid   = match[1];
+  } else if ((match = /^\/(heb|barpublishing|amherst|minnesota|leverpress|michigan|northwestern|sussex)/i.exec(path)) !== null) {
+    result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
     result.title_id = match[1];
-    result.unitid   = match[1] + '/' + param.chapter_index;
+    result.search_term   = param.q;
   }
+
 
   return result;
 });
-
-// Some of current Fulcrum users
-
-// https://www.fulcrum.org/heb (ACLS Humanities Ebook)
-// https://www.fulcrum.org/barpublishing (Bar Publishing)
-// https://www.fulcrum.org/amherst (Amherst College Press)
-// https://www.fulcrum.org/minnesota (University of Minnesota Press)
-// https://www.fulcrum.org/leverpress (Lever Press)
-// https://www.fulcrum.org/michigan (University of Michigan Press)
-// https://www.fulcrum.org/northwestern (Northwester University Press)
-// https://www.fulcrum.org/sussex (University of Sussex Press)
-
-
-
