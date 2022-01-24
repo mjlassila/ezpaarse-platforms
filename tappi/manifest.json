@@ -1,0 +1,13 @@
+{
+  "longname": "TAPPI Journal",
+  "name": "tappi",
+  "describe": "Recognizes the access to the TAPPI Journal",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "tappi.micronexx.com"
+  ],
+  "version": "2022-01-24",
+  "status": "beta"
+}
