@@ -32,12 +32,12 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     // https://www.fulcrum.org/epubs_download_interval/h989r533k?chapter_index=0&locale=en&title=Title+Page
     result.rtype    = 'BOOK_SECTION';
     result.mime     = 'EPUB';
-    result.title_id = match[2];
+    result.title_id = match[1];
     result.unitid   = match[2] + '/' + param.chapter_index;
   } else if ((match = /^\/ebooks\/([a-z0-9]+)\/download$/i.exec(path)) !== null) {
     // https://www.fulcrum.org/ebooks/h989r533k/download
     result.rtype    = 'BOOK';
-    // Mime could be also PDF or MOBI but for simplicity, let's use EPUB
+    // MIME could be also PDF or MOBI but we cannot known it from URL, so for simplicity, let's use EPUB
     result.mime     = 'EPUB';
     result.unitid   = match[1];
   } else if ((match = /^\/(heb|barpublishing|amherst|minnesota|leverpress|michigan|northwestern|sussex)/i.exec(path)) !== null) {
@@ -45,6 +45,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'HTML';
     result.title_id = match[1];
     result.search_term   = param.q;
+  } else if ((match = /^\/concern\/([a-z]+)\/([a-z0-9]+)$/i.exec(path)) !== null) {
+    // https://www.fulcrum.org/concern/monograph/h989r533k
+    result.rtype    = 'REF';
+    result.mime     = 'HTML';
+    result.unitid   = match[1] + '/' + match[2];
   }
 
 
