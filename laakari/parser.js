@@ -40,8 +40,8 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     // https://www.laakarilehti.fi/haku/?keywords=&author=&title=&year_min=1992&year_max=2022&magazine_issue=&page_number=&limit=10&advanced=1&q=alaraaja&sort=new_first
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
-    result.search_term   = [param.q, param.keywords].join(' ');
-  } else if ((match = /^\/([a-z0-9-]+)\/([a-z0-9-/.]*)/i.exec(path)) !== null & match[1]!=='erikoisalat' & match[1] !== 'sisallysluettelo' & match[1] !== 'haku' & match[1] !== 'pdf') {
+    result.search_term   = [param.q, param.keywords].join(' ').trim();
+  } else if ((match = /^\/([a-z0-9-]+)\/([a-z0-9-/.]*)/i.exec(path)) !== null & match[1]!=='erikoisalat' & match[1] !== 'sisallysluettelo' & match[1] !== 'haku' & match[1] !== 'pdf' & match[1] !== 'site') {
     // https://www.laakarilehti.fi/arkisto/paakirjoitukset/10.7.1992-kunnallinen-paasopimus-hylattiin/
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
