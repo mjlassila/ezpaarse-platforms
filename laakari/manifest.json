@@ -1,0 +1,14 @@
+{
+  "longname": "Lääkärilehti",
+  "name": "laakari",
+  "describe": "Recognizes the access to the Finnish Medical Journal (Lääkärilehti)",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.laakarilehti.fi",
+    "laakarilehti.fi"
+  ],
+  "version": "2022-01-24",
+  "status": "beta"
+}
