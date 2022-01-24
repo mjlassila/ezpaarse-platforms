@@ -1,1 +1,7 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-title_id;out-unitid;out-search_term;in-url
+BOOK_SECTION;HTML;;h989r533k;;https://www.fulcrum.org/epubs/h989r533k?locale=en
+REF;HTML;;monograph/h989r533k;;https://www.fulcrum.org/concern/monograph/h989r533k
+BOOK;EPUB;;h989r533k;;https://www.fulcrum.org/ebooks/h989r533k/download
+BOOK_SECTION;EPUB;epubs_download_interval;h989r533k/0;;https://www.fulcrum.org/epubs_download_interval/h989r533k?chapter_index=0&locale=en&title=Title+Page
+SEARCH;HTML;heb;;test;https://www.fulcrum.org/heb?q=test
+
