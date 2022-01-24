@@ -18,6 +18,8 @@ Services including:
 * Kauppalehti Online
 * Elektra
 * Duodecim
+* Fulcrum
+* Sähköinfo Severi
 
 Check branches of this repository for each individual parser.
 
