@@ -20,19 +20,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/pdf\/([0-9]{4})\/([A-Za-z0-9-])\.pdf$/i.exec(path)) !== null) {
+  if ((match = /^\/pdf\/([0-9]+)\/([A-Za-z0-9-]+)\.pdf$/i.exec(path)) !== null) {
     // https://www.laakarilehti.fi/pdf/2021/SLL502021-3010.pdf
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.unitid = match[1] + '/' + match[2];
-
-    /**
-     * unitid is a crucial information needed to filter double-clicks phenomenon, like described by COUNTER
-     * it described the most fine-grained of what's being accessed by the user
-     * it can be a DOI, an internal identifier or a part of the accessed URL
-     * more at http://ezpaarse.readthedocs.io/en/master/essential/ec-attributes.html#unitid
-     */
-    result.unitid = match[2];
 
   } else if ((match = /^\/erikoisalat\/([0-9]+)$/i.exec(path)) !== null) {
     // https://www.laakarilehti.fi/erikoisalat/807
@@ -45,12 +37,12 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'HTML';
     result.unitid   = param.year + '/' + param.magazine;
   } else if ((match = /^\/haku/i.exec(path)) !== null) {
-    // https://www.laakarilehti.fi/sisallysluettelo/?year=1992&magazine=15601
+    // https://www.laakarilehti.fi/haku/?keywords=&author=&title=&year_min=1992&year_max=2022&magazine_issue=&page_number=&limit=10&advanced=1&q=alaraaja&sort=new_first
     result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
     result.search_term   = [param.q, param.keywords].join(' ');
-  } else if ((match = /^\/([a-z0-9-]+)\/([a-z0-9-/.]*)/i.exec(path)) !== null & match[1]!=='erikoisalat' & match[2] !== 'sisallysluettelo' & match[3] !== 'haku') {
-    // https://www.laakarilehti.fi/sisallysluettelo/?year=1992&magazine=15601
+  } else if ((match = /^\/([a-z0-9-]+)\/([a-z0-9-/.]*)/i.exec(path)) !== null & match[1]!=='erikoisalat' & match[1] !== 'sisallysluettelo' & match[1] !== 'haku' & match[1] !== 'pdf') {
+    // https://www.laakarilehti.fi/arkisto/paakirjoitukset/10.7.1992-kunnallinen-paasopimus-hylattiin/
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
     result.unitid   = match[1] + '/' + match[2];
