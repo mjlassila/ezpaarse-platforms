@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-search_term;out-unitid;in-url
+ARTICLE;PDF;;95FEB154.7528;http://tappi.micronexx.com/JOURNALS/PDF/95FEB154.7528.pdf
+SEARCH;HTML;test;;http://tappi.micronexx.com/JOURNALS/search.html?query=test
