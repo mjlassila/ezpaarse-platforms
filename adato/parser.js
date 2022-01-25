@@ -38,7 +38,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.unitid   = match[1] + '/' + match[2];
-  } else if ((match = /^\/([0-9a-z_-]+)\/([a-z0-9-A-Z-_/]*)$/i.exec(path)) !== null && match[1] !== 'file' && match[1] !== 'filedepot_download' && match[1] !== 'system' && match[1] !== 'search') {
+  } else if ((match = /^\/([0-9a-z_-]+)\/([a-z0-9-A-Z-_/]*)$/i.exec(path)) !== null && match[1] !== 'file' && match[1] !== 'filedepot_download' && match[1] !== 'system' && match[1] !== 'search' && match[1] !== 'sites') {
     // https://sahkoverkkoekstra.fi/verkkotoiminnan-valvonta/valvontamenetelmien-suuntaviivat/suuntaviivojen-ensimmainen-versio
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
