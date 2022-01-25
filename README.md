@@ -23,6 +23,7 @@ Services including:
 * ST-Akatemia
 * Lääkärilehti
 * TAPPI Journal
+* Sähköverkkoekstra (Adato)
 
 Check branches of this repository for each individual parser.
 
