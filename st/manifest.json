@@ -1,0 +1,14 @@
+{
+  "longname": "ST-Online",
+  "name": "st",
+  "describe": "Recognizes access to ST-Online and ST-Akatemia.",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.stakatemiaonline.fi",
+    "stakatemiaonline.fi"
+  ],
+  "version": "2022-01-25",
+  "status": "beta"
+}
