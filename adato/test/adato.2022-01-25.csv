@@ -1,1 +1,6 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;out-search_term;in-url
+ARTICLE;PDF;rm_3-16_kaap-mmo.pdf;;https://sahkoverkkoekstra.fi/system/files/filedepot/7/rm_3-16_kaap-mmo.pdf
+ARTICLE;PDF;575/WGJBkPFo;;https://sahkoverkkoekstra.fi/file/575/download?token=WGJBkPFo
+ARTICLE;PDF;2576/403;;https://sahkoverkkoekstra.fi/filedepot_download/2576/403
+ARTICLE;HTML;verkkotoiminnan-valvonta/valvontamenetelmien-suuntaviivat/suuntaviivojen-ensimmainen-versio;;https://sahkoverkkoekstra.fi/verkkotoiminnan-valvonta/valvontamenetelmien-suuntaviivat/suuntaviivojen-ensimmainen-versio
+SEARCH;HTML;;muuntamo%20suojaus;https://sahkoverkkoekstra.fi:443/search/site/muuntamo suojaus
