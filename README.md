@@ -20,6 +20,9 @@ Services including:
 * Duodecim
 * Fulcrum
 * Sähköinfo Severi
+* ST-Akatemia
+* Lääkärilehti
+* TAPPI Journal
 
 Check branches of this repository for each individual parser.
 
