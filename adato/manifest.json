@@ -1,0 +1,14 @@
+{
+  "longname": "Sähköverkkoekstra",
+  "name": "adato",
+  "describe": "Recognizes the accesses to the platform Sähköverkkoekstra",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "sahkoverkkoekstra.fi",
+    "www.sahkoverkkoekstra.fi"
+  ],
+  "version": "2022-01-25",
+  "status": "beta"
+}
