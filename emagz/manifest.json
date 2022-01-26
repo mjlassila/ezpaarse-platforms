@@ -1,0 +1,13 @@
+{
+  "longname": "eMagz",
+  "name": "emagz",
+  "describe": "Recognizes the accesses to the platform eMagz",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "tuhto.emagz.fi"
+  ],
+  "version": "2022-01-26",
+  "status": "beta"
+}
