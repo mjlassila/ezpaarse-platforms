@@ -23,6 +23,7 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   if ((/^\/read_issue$/i.exec(path)) !== null) {
     // https://tuhto.emagz.fi/read_issue?issue_id=272699&title_id=10228
+    // http://tuhto.emagz.fi:80/search?phrase=hoitotiede%2
     result.rtype    = 'ARTICLE';
     result.mime     = 'PDF';
     result.title_id = param.title_id;
