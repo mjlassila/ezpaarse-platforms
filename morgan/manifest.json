@@ -1,0 +1,15 @@
+{
+  "longname": "Morgan & Claypool Publishers",
+  "name": "morgan",
+  "describe": "Recognizes the accesses to the platform Morgan & Claypool Publishers",
+  "contact": "Matti Lassila",
+  "pkb": true,
+  "pkb-domains": "",
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "morganclaypool.com",
+    "www.morganclaypool.com"
+  ],
+  "version": "2022-02-21",
+  "status": "beta"
+}
