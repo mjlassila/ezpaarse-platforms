@@ -24,6 +24,7 @@ Services including:
 * Lääkärilehti
 * TAPPI Journal
 * Sähköverkkoekstra (Adato)
+* Morgan & Claypool Publishers
 
 Check branches of this repository for each individual parser.
 
