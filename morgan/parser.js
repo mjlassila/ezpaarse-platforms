@@ -57,11 +57,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime = 'HTML';
     // Capture search term only for simple search
     result.search_term   = param.AllField;
-  } else if ((match = /^\/doi\/suppl\/(10.4199.*|10.2200.*)\/(.*)/i.exec(path)) !== null) {
+  } else if ((match = /^\/doi\/suppl\/(10.4199.*|10.2200.*)\/suppl_file\/(.*)/i.exec(path)) !== null) {
     // https://www.morganclaypool.com/doi/suppl/10.2200/S00484ED1V01Y201303PRO001/suppl_file/Winner_Ch1.pdf
     result.rtype    = 'SUPPL';
     result.mime = 'PDF';
-    result.unitid   = match[1];
+    result.unitid   = match[2];
   }
 
   return result;
