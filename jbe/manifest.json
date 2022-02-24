@@ -1,0 +1,14 @@
+{
+  "longname": "John Benjamins Publishing",
+  "name": "jbe",
+  "describe": "Recognizes the accesses to the platform John Benjamins Publishing",
+  "contact": "Matti Lassila",
+  "pkb": true,
+  "pkb-domains": "",
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "benjamins.com"
+  ],
+  "version": "2022-02-23",
+  "status": "beta"
+}
