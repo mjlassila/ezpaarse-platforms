@@ -1,1 +1,4 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;in-url
+ARTICLE;HTML;hts;https://benjamins.com/online/hts/articles/met2
+ARTICLE;PDF;hts;https://benjamins-com.libproxy.tuni.fi/online/hts/articles/rel4/print
+SEARCH;HTML;;https://www.benjamins.com/online/etsb/publications?f_TitleSubjects.subject_id=3092
