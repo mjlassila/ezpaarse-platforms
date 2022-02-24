@@ -22,10 +22,6 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   if ((match = /^\/online\/([a-z]*)\/articles\/([a-z1-9]{4})$/i.exec(path)) !== null) {
     // https://benjamins.com/online/hts/articles/met2
-    // https://www.benjamins.com/online/etsb/publications
-    // https://www.benjamins.com:443/online/xql/xmldb-intranet/
-    // https://www.benjamins.com/online/etsb/publications?f_TitleSubjects.subject_id=3092
-    // https://benjamins-com.libproxy.tuni.fi/online/hts/articles/rel4/print
     result.rtype    = 'ARTICLE';
     result.mime     = 'HTML';
     result.unitid = match[1];
