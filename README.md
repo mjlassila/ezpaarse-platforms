@@ -25,6 +25,7 @@ Services including:
 * TAPPI Journal
 * Sähköverkkoekstra (Adato)
 * Morgan & Claypool Publishers
+* John Benjamins Publishing
 
 Check branches of this repository for each individual parser.
 
