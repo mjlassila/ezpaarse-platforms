@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;out-search_term;in-url
+SEARCH;HTML;;castren;https://kansallisbiografia.fi/search?q=castren
+ARTICLE;HTML;3619;;https://kansallisbiografia.fi/kansallisbiografia/henkilo/3619
