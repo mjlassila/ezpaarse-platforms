@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;in-url
+OTHER;HTML;knowpap;http://www.knowpap.com/extranet/suomi/knowpap_system/user_interfaces/knowpap.htm
+OTHER;HTML;knowpap;http://www.knowpap.com/extranet/english/knowpap_system/user_interfaces/knowpap.htm
