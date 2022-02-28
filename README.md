@@ -26,6 +26,7 @@ Services including:
 * Sähköverkkoekstra (Adato)
 * Morgan & Claypool Publishers
 * John Benjamins Publishing
+# KnowPap
 
 Check branches of this repository for each individual parser.
 
