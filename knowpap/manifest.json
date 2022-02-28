@@ -1,0 +1,14 @@
+{
+  "longname": "KnowPap",
+  "name": "knowpap",
+  "describe": "Recognizes the accesses to the platform KnowPap",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "www.knowpap.com",
+    "knowpap.com"
+  ],
+  "version": "2022-02-28",
+  "status": "beta"
+}
