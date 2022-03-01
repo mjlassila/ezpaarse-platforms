@@ -1,0 +1,17 @@
+{
+  "longname": "Integrum Profi",
+  "name": "integrum",
+  "describe": "Recognizes the accesses to the platform Integrum Profi",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms",
+  "domains": [
+    "integrum.ru",
+    "aafnet.integrum.ru",
+    "aclient.integrum.ru",
+    "asvc.integrum.ru",
+    "svc.integrum.ru"
+  ],
+  "version": "2022-03-01",
+  "status": "beta"
+}
