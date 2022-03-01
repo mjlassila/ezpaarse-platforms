@@ -27,6 +27,7 @@ Services including:
 * Morgan & Claypool Publishers
 * John Benjamins Publishing
 * KnowPap
+* Bloomsbury Collections
 
 Check branches of this repository for each individual parser.
 
