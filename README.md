@@ -28,6 +28,7 @@ Services including:
 * John Benjamins Publishing
 * KnowPap
 * Bloomsbury Collections
+* Integrum Profi
 
 Check branches of this repository for each individual parser.
 
