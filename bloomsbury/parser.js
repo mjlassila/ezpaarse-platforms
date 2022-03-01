@@ -21,14 +21,14 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   let match;
 
-  if ((match = /^\/book\/([a-z0-9\-]*)\/([a-z0-9\-]+)$/i.exec(path)) !== null) {
+  if ((match = /^\/book\/([a-z0-9-]*)\/([a-z0-9-]+)$/i.exec(path)) !== null) {
     // https://www.bloomsburycollections.com/book/debating-new-approaches-to-history/ch1-global-history
     result.rtype    = 'BOOK_SECTION';
     result.mime     = 'HTML';
     result.title_id = match[1];
     result.unitid = match[2];
 
-  } else if ((match = /^\/book\/([a-z0-9\-]+)\/$/i.exec(path)) !== null) {
+  } else if ((match = /^\/book\/([a-z0-9-]+)\/$/i.exec(path)) !== null) {
     // https://www.bloomsburycollections.com/book/debating-new-approaches-to-history/
     result.rtype    = 'TOC';
     result.mime     = 'HTML';
