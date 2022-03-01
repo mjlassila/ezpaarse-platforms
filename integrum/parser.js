@@ -19,10 +19,11 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
   // use console.error for debuging
   // console.error(parsedUrl);
 
-
-  if ((/^\/artefact3\/ia\/ia\d*.aspx/i.exec(path)) !== null) {
+  let match;
+  if ((/^\/artefact3\/ia\/ia\d*.aspx/i.exec(path)) !== null && param.si) {
     // http://aafnet.integrum.ru:80/artefact3/ia/ia5.aspx?lv=9&si=pWOAtpvb2E&qu=221&bi=46909&nd=1&srt=0&tnd=0&f=0&st=0
-    result.rtype    = 'ARTICLE';
+    // http://aafnet.integrum.ru.libproxy.tuni.fi/Artefact3/ia/ia5.aspx/mTRbOtfn2R/5308/s1_D20210623_N25_L2021062220565869_A008.htm
+    result.rtype    = 'SEARCH';
     result.mime     = 'HTML';
     result.unitid = param.si;
 
@@ -34,7 +35,13 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
     result.mime     = 'HTML';
     result.search_term   = param.query;
     result.unitid = param.si;
+  } else if ((match = /^\/artefact3\/ia\/ia\d*.aspx\/.*\/([A-Za-z0-9_]+.htm)$/i.exec(path)) !== null) {
+    // http://aafnet.integrum.ru.libproxy.tuni.fi/Artefact3/ia/ia5.aspx/mTRbOtfn2R/5308/s1_D20210623_N25_L2021062220565869_A008.htm
+    result.rtype    = 'ARTICLE';
+    result.mime     = 'HTML';
+    result.unitid = match[1];
   }
+
 
   return result;
 });
