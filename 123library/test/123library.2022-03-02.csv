@@ -1,1 +1,3 @@
-out-rtype;out-mime;in-url
+out-rtype;out-mime;out-unitid;out-title_id;in-url
+BOOK;HTML;112748;1;https://www.123library.org/read/?id=112748&preview=1
+TOC;HTML;112748;;https://www.123library.org:443/ebook/id/112748/
