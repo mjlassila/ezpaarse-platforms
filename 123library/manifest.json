@@ -1,0 +1,14 @@
+{
+  "longname": "123Library",
+  "name": "123library",
+  "describe": "Recognizes the accesses to the platform 123Library",
+  "contact": "Matti Lassila",
+  "pkb": false,
+  "docurl": "https://github.com/mjlassila/ezpaarse-platforms/",
+  "domains": [
+    "www.123library.org",
+    "123library.org"
+  ],
+  "version": "2022-03-02",
+  "status": "beta"
+}
