@@ -45,3 +45,26 @@ module.exports = new Parser(function analyseEC(parsedUrl, ec) {
 
   return result;
 });
+
+
+// TOC
+// https://www-cios-org.libproxy.tuni.fi/viewtocabsm!0151!ENV
+
+// Abstract
+// https://www-cios-org.libproxy.tuni.fi/getabsopn/IADAA33.ENV@1@temp55.748@www@206@COMP!!MORRIS
+
+// COSMIC
+// https://www-cios-org.libproxy.tuni.fi/www/cosmicabout.htm
+
+// COSMIC search
+// https://www-cios-org.libproxy.tuni.fi/cosearch?TARGET=morse&STYPE=COMP&SYNS=YES&METHODTERM=ALL&FOCUSTERM=ALL&STARTYEAR=1900&ENDYEAR=2022
+
+// Browse by title
+// https://www-cios-org.libproxy.tuni.fi/www/cosmicbrowsetitle.htm
+
+
+// Individual record
+// https://www-cios-org.libproxy.tuni.fi/getcosmicbbt/0033175.jmk
+
+// Com Analytics
+// https://www-cios-org.libproxy.tuni.fi/comanalytics
